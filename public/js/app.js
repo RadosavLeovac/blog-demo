@@ -2069,6 +2069,11 @@ __webpack_require__.r(__webpack_exports__);
     loadPopup: function loadPopup() {
       this.modalShown = !this.modalShown;
     },
+    cancelPopup: function cancelPopup() {
+      this.newTitle = '';
+      this.newBody = '';
+      this.modalShown = !this.modalShown;
+    },
     postSubmit: function postSubmit() {
       var _this2 = this;
 
@@ -20598,7 +20603,7 @@ var render = function() {
                                 on: {
                                   click: function($event) {
                                     $event.preventDefault()
-                                    return _vm.loadPopup()
+                                    return _vm.cancelPopup()
                                   }
                                 }
                               },
