@@ -2071,6 +2071,7 @@ __webpack_require__.r(__webpack_exports__);
       this.modalShown = !this.modalShown;
     },
     cancelPopup: function cancelPopup() {
+      this.isEditing = false;
       this.newTitle = '';
       this.newBody = '';
       this.modalShown = !this.modalShown;
@@ -2107,7 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       this.modalShown = !this.modalShown;
-      this.isEditing = !this.isEditing;
+      this.isEditing = true;
       axios.get('./api/post/show/' + id).then(function (response) {
         return response;
       }).then(function (data) {

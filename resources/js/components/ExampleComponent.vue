@@ -162,10 +162,10 @@ export default {
             this.modalShown = !this.modalShown
         },
         cancelPopup() {
+            this.isEditing = false;
             this.newTitle = '';
             this.newBody = '';
             this.modalShown = !this.modalShown;
-            this.isEditing = false;
 
         },
         postSubmit() {
