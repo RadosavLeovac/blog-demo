@@ -53,14 +53,15 @@
                                 <input type="hidden" name="remember" value="true">
                                 <div class="rounded-md shadow-sm">
                                     <div>
-                                        <input v-model="newTitle" name="title" aria-label="Email address" type="email"
+                                        <label class="mb-2 font-regular text-sm text-grey-darkest" for="title">Title</label>
+                                        <input v-model="newTitle" id="title" name="title" aria-label="Email address" type="email"
                                                required
-                                               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-                                        >
+                                               class="appearance-none mt-2 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5">
                                     </div>
                                     <div class=" mt-5">
-                                        <textarea v-model="newBody" name="body"
-                                                  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"></textarea>
+                                        <label class="mb-2 font-regular text-sm text-grey-darkest" for="text">Text</label>
+                                        <textarea id="text" v-model="newBody" name="body"
+                                                  class="appearance-none mt-2 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"></textarea>
                                     </div>
                                 </div>
                             </form>

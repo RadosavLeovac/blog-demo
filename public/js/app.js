@@ -2039,6 +2039,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20472,6 +20473,16 @@ var render = function() {
                             _vm._v(" "),
                             _c("div", { staticClass: "rounded-md shadow-sm" }, [
                               _c("div", [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "mb-2 font-regular text-sm text-grey-darkest",
+                                    attrs: { for: "title" }
+                                  },
+                                  [_vm._v("Title")]
+                                ),
+                                _vm._v(" "),
                                 _c("input", {
                                   directives: [
                                     {
@@ -20482,8 +20493,9 @@ var render = function() {
                                     }
                                   ],
                                   staticClass:
-                                    "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5",
+                                    "appearance-none mt-2 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5",
                                   attrs: {
+                                    id: "title",
                                     name: "title",
                                     "aria-label": "Email address",
                                     type: "email",
@@ -20502,6 +20514,16 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: " mt-5" }, [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "mb-2 font-regular text-sm text-grey-darkest",
+                                    attrs: { for: "text" }
+                                  },
+                                  [_vm._v("Text")]
+                                ),
+                                _vm._v(" "),
                                 _c("textarea", {
                                   directives: [
                                     {
@@ -20512,8 +20534,8 @@ var render = function() {
                                     }
                                   ],
                                   staticClass:
-                                    "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5",
-                                  attrs: { name: "body" },
+                                    "appearance-none mt-2 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5",
+                                  attrs: { id: "text", name: "body" },
                                   domProps: { value: _vm.newBody },
                                   on: {
                                     input: function($event) {
