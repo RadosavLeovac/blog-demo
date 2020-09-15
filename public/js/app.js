@@ -2030,6 +2030,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2085,6 +2090,17 @@ __webpack_require__.r(__webpack_exports__);
         _this3.getResults();
 
         _this3.$toasted.show(response.data.message);
+      });
+    },
+    postUpdate: function postUpdate(id) {
+      var _this4 = this;
+
+      this.modalShown = !this.modalShown;
+      axios.get('./api/post/show/' + id).then(function (response) {
+        return response;
+      }).then(function (data) {
+        _this4.newTitle = data.data.title;
+        _this4.newBody = data.data.body;
       });
     }
   }
@@ -20439,8 +20455,7 @@ var render = function() {
                                     name: "title",
                                     "aria-label": "Email address",
                                     type: "email",
-                                    required: "",
-                                    placeholder: "Title"
+                                    required: ""
                                   },
                                   domProps: { value: _vm.newTitle },
                                   on: {
@@ -20466,7 +20481,7 @@ var render = function() {
                                   ],
                                   staticClass:
                                     "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5",
-                                  attrs: { name: "body", placeholder: "Text" },
+                                  attrs: { name: "body" },
                                   domProps: { value: _vm.newBody },
                                   on: {
                                     input: function($event) {
@@ -20564,7 +20579,7 @@ var render = function() {
           "h6",
           {
             staticClass:
-              "mt-2 leading-8 font-bold tracking-tight text-gray-700 sm:leading-10"
+              "mt-2 leading-8 font-bold tracking-tight text-gray-500 sm:leading-10"
           },
           [
             _vm._v(
@@ -20637,6 +20652,22 @@ var render = function() {
                   _vm._v(" "),
                   _c("hr")
                 ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "inline-flex mb-6 justify-center mx-auto w-1/4 rounded-md border border-transparent px-4 py-2 bg-indigo-400 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.postUpdate(post.id)
+                    }
+                  }
+                },
+                [_vm._v("\n                    Edit\n                ")]
               ),
               _vm._v(" "),
               _c(

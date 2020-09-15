@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/posts' ,[App\Http\Controllers\PostController::class, 'index'] );
 Route::post('/post', [App\Http\Controllers\PostController::class, 'store']);
 Route::delete('/post/{id}', [App\Http\Controllers\PostController::class, 'destroy']);
+Route::get('/post/show/{id}', [App\Http\Controllers\PostController::class, 'show']);

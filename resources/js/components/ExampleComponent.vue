@@ -53,12 +53,13 @@
                                 <input type="hidden" name="remember" value="true">
                                 <div class="rounded-md shadow-sm">
                                     <div>
-                                        <input v-model="newTitle" name="title" aria-label="Email address" type="email" required
+                                        <input v-model="newTitle" name="title" aria-label="Email address" type="email"
+                                               required
                                                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-                                               placeholder="Title">
+                                        >
                                     </div>
                                     <div class=" mt-5">
-                                        <textarea v-model="newBody" name="body" placeholder="Text"
+                                        <textarea v-model="newBody" name="body"
                                                   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"></textarea>
                                     </div>
                                 </div>
@@ -86,8 +87,8 @@
         <!--posts-->
         <div class="container mx-auto mt-10 px-5">
             <div class="flex mb-4">
-                <h6 class="mt-2 leading-8 font-bold tracking-tight text-gray-700 sm:leading-10">
-                    Total posts: {{ laravelData.total}}
+                <h6 class="mt-2 leading-8 font-bold tracking-tight text-gray-500 sm:leading-10">
+                    Total posts: {{ laravelData.total }}
                 </h6>
             </div>
             <dl>
@@ -105,6 +106,10 @@
                         </div>
                         <hr>
                     </div>
+                    <button @click.prevent="postUpdate(post.id)" type="button"
+                            class="inline-flex mb-6 justify-center mx-auto w-1/4 rounded-md border border-transparent px-4 py-2 bg-indigo-400 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                        Edit
+                    </button>
                     <button @click.prevent="postDelete(post.id)" type="button"
                             class="inline-flex mb-6 justify-center mx-auto w-1/4 rounded-md border border-transparent px-4 py-2 bg-orange-400 text-base leading-6 font-medium text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                         Delete
@@ -151,8 +156,8 @@ export default {
             this.modalShown = !this.modalShown
         },
         postSubmit() {
-            axios.post('./api/post',{title: this.newTitle, body: this.newBody})
-                .then((response)=>{
+            axios.post('./api/post', {title: this.newTitle, body: this.newBody})
+                .then((response) => {
                     this.getResults();
                     this.modalShown = !this.modalShown;
                     this.$toasted.show(response.data.message);
@@ -162,12 +167,23 @@ export default {
                 });
         },
         postDelete(id) {
-            axios.post('./api/post/'+id, {_method: 'delete'})
-                .then((response)=>{
+            axios.post('./api/post/' + id, {_method: 'delete'})
+                .then((response) => {
                     this.getResults();
                     this.$toasted.show(response.data.message)
 
                 });
+        },
+        postUpdate(id) {
+            this.modalShown = !this.modalShown;
+            axios.get('./api/post/show/' + id)
+                .then(response => {
+                    return response;
+                }).then(data => {
+                this.newTitle = data.data.title;
+                this.newBody = data.data.body;
+            });
+
         }
     }
 }
