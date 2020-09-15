@@ -11,3 +11,12 @@
 Simple, one page, blogging template!
 
 Live demo <a href="http://165.232.78.217/">HERE</a>
+
+Installation guide:
+<ul>
+    <li>Download or clone</li>
+    <li>composer update</li>
+    <li>php artisan migrate</li>
+    <li>php artisan db:seed</li>
+    <li>npm install</li>
+</ul>
