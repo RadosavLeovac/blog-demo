@@ -2035,13 +2035,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       modalShown: false,
       laravelData: {},
       newTitle: '',
-      newBody: ''
+      newBody: '',
+      isEditing: false
     };
   },
   created: function created() {
@@ -2096,12 +2101,32 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       this.modalShown = !this.modalShown;
+      this.isEditing = !this.isEditing;
       axios.get('./api/post/show/' + id).then(function (response) {
         return response;
       }).then(function (data) {
         _this4.newTitle = data.data.title;
         _this4.newBody = data.data.body;
+        _this4.id = data.data.id;
       });
+    },
+    postUpdateSubmit: function postUpdateSubmit(id) {
+      var _this5 = this;
+
+      axios.post('./api/post/edit/' + id, {
+        title: this.newTitle,
+        body: this.newBody,
+        _method: 'patch'
+      }).then(function (response) {
+        return response;
+      }).then(function (data) {
+        _this5.newTitle = '';
+        _this5.newBody = '';
+
+        _this5.$toasted.show(data.data.message);
+      });
+      this.getResults();
+      this.modalShown = !this.modalShown;
     }
   }
 });
@@ -20513,25 +20538,45 @@ var render = function() {
                               "flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto"
                           },
                           [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.postSubmit()
-                                  }
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                        Submit\n                      "
+                            _vm.isEditing
+                              ? _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.postUpdateSubmit(_vm.id)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                        Submit\n                      "
+                                    )
+                                  ]
                                 )
-                              ]
-                            )
+                              : _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.postSubmit()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                        Submit\n                      "
+                                    )
+                                  ]
+                                )
                           ]
                         ),
                         _vm._v(" "),

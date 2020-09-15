@@ -67,7 +67,11 @@
                         </div>
                         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                          <button @click.prevent="postSubmit()" type="button"
+                          <button v-if="isEditing" @click.prevent="postUpdateSubmit(id)" type="button"
+                                  class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                            Submit
+                          </button>
+                            <button v-else @click.prevent="postSubmit()" type="button"
                                   class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                             Submit
                           </button>
@@ -134,6 +138,7 @@ export default {
             laravelData: {},
             newTitle: '',
             newBody: '',
+            isEditing: false,
         }
     },
 
@@ -176,13 +181,29 @@ export default {
         },
         postUpdate(id) {
             this.modalShown = !this.modalShown;
+            this.isEditing = !this.isEditing;
             axios.get('./api/post/show/' + id)
                 .then(response => {
                     return response;
                 }).then(data => {
                 this.newTitle = data.data.title;
                 this.newBody = data.data.body;
+                this.id = data.data.id
             });
+
+        },
+        postUpdateSubmit(id) {
+            axios.post('./api/post/edit/' + id, {title: this.newTitle, body: this.newBody, _method: 'patch'})
+                .then(response => {
+                    return response;
+                }).then(data => {
+                this.newTitle = '';
+                this.newBody = '';
+                this.$toasted.show(data.data.message);
+
+            })
+            this.getResults();
+            this.modalShown = !this.modalShown;
 
         }
     }

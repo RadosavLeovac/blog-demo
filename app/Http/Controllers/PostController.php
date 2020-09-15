@@ -76,9 +76,16 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $post = Post::where('id', $id)->firstOrFail();
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->update();
+
+        return response([
+            'message' => 'Post is updated'
+        ]);
     }
 
     /**
