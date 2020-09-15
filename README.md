@@ -10,7 +10,7 @@
 ## Laravel / Vue.js / Axios / Tailwind / Toastr
 Simple, one page, blogging template!
 
-Live demo <a href="http://165.232.78.217/">HERE</a>
+Live demo <a href="http://165.232.78.217/" target="_blank">HERE</a>
 
 Installation guide:
 <ul>
