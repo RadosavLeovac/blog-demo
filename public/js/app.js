@@ -2124,6 +2124,8 @@ __webpack_require__.r(__webpack_exports__);
         _this5.newBody = '';
 
         _this5.$toasted.show(data.data.message);
+
+        _this5.isEditing = false;
       });
       this.getResults();
       this.modalShown = !this.modalShown;

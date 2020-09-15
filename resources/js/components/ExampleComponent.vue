@@ -200,11 +200,11 @@ export default {
                 this.newTitle = '';
                 this.newBody = '';
                 this.$toasted.show(data.data.message);
+                this.isEditing = false;
 
             })
             this.getResults();
             this.modalShown = !this.modalShown;
-            this.isEditing = false;
 
 
         }
