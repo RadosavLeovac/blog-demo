@@ -203,7 +203,7 @@ export default {
 
             })
             this.getResults();
-            this.isEditing = !this.isEditing;
+            this.isEditing = false;
             this.modalShown = !this.modalShown;
 
         }
