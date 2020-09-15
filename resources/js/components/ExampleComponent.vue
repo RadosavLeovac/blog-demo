@@ -189,7 +189,7 @@ export default {
         },
         postUpdate(id) {
             this.modalShown = !this.modalShown;
-            this.isEditing = !this.isEditing;
+            this.isEditing = true;
             axios.get('./api/post/show/' + id)
                 .then(response => {
                     return response;
