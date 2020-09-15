@@ -203,8 +203,9 @@ export default {
 
             })
             this.getResults();
-            this.isEditing = false;
             this.modalShown = !this.modalShown;
+            this.isEditing = false;
+
 
         }
     }
