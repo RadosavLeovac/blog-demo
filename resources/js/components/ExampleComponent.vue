@@ -165,6 +165,8 @@ export default {
             this.newTitle = '';
             this.newBody = '';
             this.modalShown = !this.modalShown;
+            this.isEditing = false;
+
         },
         postSubmit() {
             axios.post('./api/post', {title: this.newTitle, body: this.newBody})
@@ -194,7 +196,8 @@ export default {
                 }).then(data => {
                 this.newTitle = data.data.title;
                 this.newBody = data.data.body;
-                this.id = data.data.id
+                this.id = data.data.id;
+
             });
 
         },
