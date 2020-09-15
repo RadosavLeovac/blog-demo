@@ -10,12 +10,12 @@
 ## Laravel / Vue.js / Axios / Tailwind / Toastr
 Simple, one page, blogging template!
 
-Clicking on New Post button modal is opened.
-In opened modal we can input the title and the body of our post and publish it, or cancel and close the modal.
-After publishing modal is closed and success toastr notification is displayed and auto closed in 6 seconds.
-After post submit the new post is displayed on the main page without page reload.
-Each post can be deleted and after delete operation delete toastr message is displayed.
-Posts on the main page are paginated to 8 per page. 
+- Clicking on New Post button modal is opened.
+- In opened modal we can input the title and the body of our post and publish it, or cancel and close the modal.
+- After publishing modal is closed and success toastr notification is displayed and auto closed in 6 seconds.
+- After post submit the new post is displayed on the main page without page reload.
+- Each post can be deleted and after delete operation delete toastr message is displayed.
+- Posts on the main page are paginated to 8 per page. 
 
 Live demo <a href="http://165.232.78.217/" target="_blank">HERE</a>
 
