@@ -84,7 +84,12 @@
 
         </div>
         <!--posts-->
-        <div class="container mx-auto mt-10">
+        <div class="container mx-auto mt-10 px-5">
+            <div class="flex mb-4">
+                <h6 class="mt-2 leading-8 font-bold tracking-tight text-gray-700 sm:leading-10">
+                    Total posts: {{ laravelData.total}}
+                </h6>
+            </div>
             <dl>
                 <template v-for="post in laravelData.data">
                     <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-5">

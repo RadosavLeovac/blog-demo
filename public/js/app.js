@@ -2025,6 +2025,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20553,7 +20558,24 @@ var render = function() {
         : _vm._e()
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "container mx-auto mt-10" }, [
+    _c("div", { staticClass: "container mx-auto mt-10 px-5" }, [
+      _c("div", { staticClass: "flex mb-4" }, [
+        _c(
+          "h6",
+          {
+            staticClass:
+              "mt-2 leading-8 font-bold tracking-tight text-gray-700 sm:leading-10"
+          },
+          [
+            _vm._v(
+              "\n                Total posts: " +
+                _vm._s(_vm.laravelData.total) +
+                "\n            "
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
       _c(
         "dl",
         [
