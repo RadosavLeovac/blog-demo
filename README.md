@@ -16,7 +16,13 @@ Installation guide:
 <ul>
     <li>Download or clone</li>
     <li>composer update</li>
+    <li>create database, edit and rename .env.example to .env</li>
     <li>php artisan migrate</li>
     <li>php artisan db:seed</li>
     <li>npm install</li>
 </ul>
+
+Laravel v8
+- Views in resources/views/
+- Vue.js component in resources/js/components
+- routes in route/api.php file / take note in laravel 8 default routing is changed Route::get('/posts' ,[App\Http\Controllers\PostController::class, 'index'] ); - read more in laravel 8 upgrade documentation.
