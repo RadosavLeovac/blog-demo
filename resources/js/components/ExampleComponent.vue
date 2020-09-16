@@ -53,13 +53,16 @@
                                 <input type="hidden" name="remember" value="true">
                                 <div class="rounded-md shadow-sm">
                                     <div>
-                                        <label class="mb-2 font-regular text-sm text-grey-darkest" for="title">Title</label>
-                                        <input v-model="newTitle" id="title" name="title" aria-label="Email address" type="email"
+                                        <label class="mb-2 font-regular text-sm text-grey-darkest"
+                                               for="title">Title</label>
+                                        <input v-model="newTitle" id="title" name="title" aria-label="Email address"
+                                               type="email"
                                                required
                                                class="appearance-none mt-2 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5">
                                     </div>
                                     <div class=" mt-5">
-                                        <label class="mb-2 font-regular text-sm text-grey-darkest" for="text">Text</label>
+                                        <label class="mb-2 font-regular text-sm text-grey-darkest"
+                                               for="text">Text</label>
                                         <textarea id="text" v-model="newBody" name="body"
                                                   class="appearance-none mt-2 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"></textarea>
                                     </div>
@@ -73,7 +76,7 @@
                             Submit
                           </button>
                             <button v-else @click.prevent="postSubmit()" type="button"
-                                  class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                             Submit
                           </button>
                         </span>
